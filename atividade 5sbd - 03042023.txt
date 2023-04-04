@@ -1,0 +1,15 @@
+-- Buscando todos os alunos da turma
+
+SELECT aluno.id, aluno.nome, aluno.data_nascimento, turma.nome as nome_turma, turma.turno
+FROM aluno
+JOIN aluno_turma ON aluno.id = aluno_turma.idAluno
+JOIN turma ON turma.id = aluno_turma.idTurma
+WHERE turma.nome = 'nome_da_turma';
+
+-- Buscando as informações de um aluno
+
+SELECT aluno.id, aluno.nome, aluno.data_nascimento, turma.nome as nome_turma, turma.turno, matricula.nota_av1, matricula.nota_av2, matricula.media, matricula.faltas
+FROM aluno
+JOIN matricula ON aluno.id = matricula.idAluno
+JOIN turma ON turma.id = matricula.idTurma
+WHERE aluno.id = x;
